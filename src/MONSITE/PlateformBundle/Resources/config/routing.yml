@@ -1,0 +1,42 @@
+
+#src/MONSITE/PlateformBundle/Resources/config/routing.yml
+
+MONSITE_platform_home:
+    path:     /{page}
+    defaults:
+        _controller: MONSITEPlateformBundle:Advert:index 
+        page:        1
+    requirements:
+        page: \d*
+
+
+MONSITE_platform_home:
+    path:     /
+    defaults: { _controller: MONSITEPlateformBundle:Advert:index }
+    
+MONSITE_platform_view:
+    path:     /advert/{id}
+    defaults: { _controller: MONSITEPlateformBundle:Advert:view }
+    
+MONSITE_platform_edit:
+    path:     /advert/edit/{id}
+    defaults: { _controller: MONSITEPlateformBundle:Advert:edit}
+    
+MONSITE_platform_delete:
+    path:     /advert/delete/{id}
+    defaults: { _controller: MONSITEPlateformBundle:Advert:delete}
+    
+MONSITE_platform_add:
+    path:     /add
+    defaults: { _controller: MONSITEPlateformBundle:Advert:add }
+    
+MONSITE_platform_bye:
+    path:     /bye/{id}
+    defaults: { _controller: MONSITEPlateformBundle:Advert:bye, id: 5 }
+    
+MONSITE_platform_view_slug:
+    path:     /{year}/{slug}.{format}
+    defaults: { _controller: MONSITEPlateformBundle:Advert:viewSlug, format: html }
+    requirements:
+        year:    \d{4}
+        format:  html|xml

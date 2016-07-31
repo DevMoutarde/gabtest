@@ -1,0 +1,15 @@
+{# empty Twig template #}
+
+{% extends "MONSITEPlateformBundle::layout.html.twig" %}
+
+{% block body %}
+    
+    <h2>Ajouter une annonce</h2>
+    {# grace à include il est possible d'ajouter autant de templates les uns dans les autres surtout si il est nécessaire de les reutiliser#}
+    {{ include("MONSITEPlateformBundle:Advert:form.html.twig") }}
+    
+    <p>
+        annonce ajoutée directement sur la page d'accueil après validation du formulaire
+    </p>
+    
+{% endblock %}

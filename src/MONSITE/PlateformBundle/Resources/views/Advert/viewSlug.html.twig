@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Page viewSlug</title>
+    </head>
+    
+    <body>
+        <p>Passage de paramètres: </p>
+        <p>{{ contenu }}</p>
+        <p>{{ annee }}</p>
+        <p>{{ lien }}</p>
+        <p>{{ webmaster }}</p>
+        <p>test global: {{ testglobal }}</p>
+        <p> Récupération du lien venant du controller <a href="{{ lien }}"> lien vers la page bye</a></p>
+        <p> 
+            <a href=" {{ path('MONSITE_platform_bye', {'id' : 5} ) }} "> lien vers la page bye</a>
+        
+        </p>
+        
+        <p> 
+            <a href=" {{ path('monsite_module_complementaire_homepage') }} "> lien vers la page bye</a>
+        
+        </p>
+        
+        <p> test de condition:
+            {% if annee > 2010 %}
+                le contenu est supérieur à 2010
+            {% elseif annee > 2020 %}
+                Le contenu est superieur a 2020
+            {% else %}
+                le contenu est inferieur ou egal a 2010
+            {% endif %}
+            
+        </p>
+        
+        <p>Test parcours tableau</p>
+        <ul>
+            {% for test in table %}
+                <li>
+                    {{test}}
+                </li>
+            {% endfor %}
+            
+            
+        </ul>
+            
+        <p>Test parcours tableau avec couple clé - valeurs </p>
+        <select>
+            
+            {% for valeur, option in table %}
+                <option value="{{ valeur }}"> {{ option }} </option>
+            {% endfor %}
+        </select>
+        
+        <ul>
+            {% for valeur, option in table %}
+                <li>{{ valeur }} - {{ option }} it: {{loop.index0}}, nb it av fin: {{loop.revindex}}</li>
+                
+            {% endfor %}
+            
+        </ul>
+            
+        <p>
+            Test de définition de variables <br>
+            {% if table is defined %}
+                La variable table est bien definie
+            {% else %}
+                La variable table n'est pas definie
+            {% endif %}
+            
+        </p> 
+        <p>
+            Test de définition de variables <br>
+            {% if coucou is defined %}
+                La variable coucou est bien definie
+            {% else %}
+                La variable coucou n'est pas definie
+            {% endif %}
+        </p>    
+        
+        
+        
+        
+            
+            
+                
+   
+        
+        
+        
+        
+    </body>
+</html>

@@ -1,0 +1,59 @@
+{# empty Twig template #}
+
+
+{% extends "MONSITEPlateformBundle::layout.html.twig" %}
+
+{% block title %}
+    Lecture d'une annonce - {{ parent()}}
+{% endblock %}
+
+
+
+{% block MONSITEPLATEFORM_body %}
+    {% for message in app.session.flashbag.get('notice') %}
+        <p>Message flash: {{ message }} </p>
+    {% endfor %}
+    {% if advert.image is not null %}
+        <img src=" {{ asset( advert.image.webPath)  }}" alt="{{advert.image.alt}}">
+    {% endif %}
+    <h2>{{advert.title}}</h2>
+    <i>Par {{advert.author}}, le {{advert.date|date('d/m/Y') }}</i>
+    
+    {% if listAdvertSkill|length >0%}
+        {% for advertSkill in listAdvertSkill %}
+                {{advertSkill.skill.name }}
+        {% endfor %}
+    {% endif %}
+    
+    <div class="well">
+        {{advert.content}}
+        <ul>
+            {% for item in listApplication %}
+                <li>{{ item.author }}: {{ item.content }}</li>
+                
+            {% endfor %}
+        </ul>
+    </div>
+    
+        
+        {% if not advert.categories.empty %}
+           <p> 
+               Catégories: 
+               {% for category in advert.categories %}
+                   {{ category.name }} {% if not loop.last %},{% endif %}
+               {% endfor %}
+           </p>   
+        {% endif %}
+        
+        
+        <p>
+            <a href="{{path("MONSITE_platform_home") }}" class ="btn btn-default">
+                <i class="glyphicon glyphicon-chevron-left">Retour à la liste</i></a>
+            
+            <a href="{{path("MONSITE_platform_edit", {'id': advert.id}) }}" class ="btn btn-default">
+                <i class="glyphicon glyphicon-edit">Modifier annonce</i></a>
+            
+            <a href="{{path("MONSITE_platform_delete", {'id': advert.id} )}}" class ="btn btn-default">
+                <i class="glyphicon glyphicon-trash">Supprimer l'annonce</i></a>
+        </p>
+{% endblock %}

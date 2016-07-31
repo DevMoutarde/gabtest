@@ -1,0 +1,22 @@
+# src/MONSITE/PlateformBundle/Resources/config/service.yml
+
+services:
+    
+#    monsite_plateform.example:
+#        class: MONSITE\PlateformBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]
+
+    
+    monsite_plateform.antispam:
+        class: MONSITE\PlateformBundle\Antispam\MONSITEAntispam
+        
+    monsite_plateform.antispamParameter:
+        class: MONSITE\PlateformBundle\Antispam\MONSITEAntispamParameter
+        arguments: [@mailer, %locale%, 50]
+        
+    admc_core.antispam:
+        class: ADMC\CoreBundle\Antispam\ADMCAntispam
+        arguments: [50]
+
+parameters:
+    un_parametre: 5

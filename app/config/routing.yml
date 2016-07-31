@@ -1,0 +1,25 @@
+
+
+#app/config/routing.yml
+
+monsite_plateform:
+    resource: "@MONSITEPlateformBundle/Resources/config/routing.yml"
+    prefix:   /
+    
+monsite_plateform_test:
+    resource: "@ADMCCoreBundle/Resources/config/routing.yml"
+    prefix:   /test
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+    
+login:
+    pattern: /login
+    defaults: { _controller: MONSITEUserBundle:Security:login }
+    
+login_check:
+    pattern: /login_check
+    
+logout:
+    pattern: /logout

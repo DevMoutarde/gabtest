@@ -1,0 +1,12 @@
+{# empty Twig template #}
+
+<ul class="nav nav-pills nav-stacked">
+    
+    {% for advert in listAdverts %}
+        <li>
+            <a href=" {{ path('MONSITE_platform_view' , {'id': advert.id})}}">{{advert.title}} </a>
+        
+        
+    {% endfor %}
+         
+</ul>
