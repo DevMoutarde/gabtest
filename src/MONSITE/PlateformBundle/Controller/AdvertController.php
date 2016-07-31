@@ -97,9 +97,9 @@ class AdvertController extends Controller
     public function menuAction(){
         
         $listAdvert = array(
-            array('id' => 2, 'title'=> 'Recherche développeur'),
-            array('id' => 5, 'title'=> 'Mission'),
-            array('id' => 9, 'title'=> 'offre')
+            array('id' => 2, 'title'=> 'test1'),
+            array('id' => 5, 'title'=> 'test2'),
+            array('id' => 9, 'title'=> 'test3')
         );
         //ini, on ne fait que passer des valeurs au template, il n'y a pas de 
         //génération de template vie get('templating');
